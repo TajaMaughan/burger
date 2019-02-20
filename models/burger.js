@@ -1,5 +1,7 @@
+//require orm
 var orm = require("../config/orm.js");
 
+//takes input from webpage and puts it into orm functions
 var burger = {
     selectAll: function(next) {
         orm.selectAll("burgers", function(res) {
@@ -18,4 +20,5 @@ var burger = {
     }
 }
 
+//export for use in controller
 module.exports = burger;
