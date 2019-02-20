@@ -1,36 +1,48 @@
-<h1>Eat the Burger!</h1>
-<img src="../public/assets/img/burger.jpg">
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="mt-4">Eat the Burger!</h1>
+    </div>
+    <div class="row justify-content-center">
+        <img src="assets/img/burger3.png" class="burger_img">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h3 class="text-center">Burgers to eat</h3>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <form action="/burger/eat/{{id}}" method="POST">
+                    <div>
+                        <li class="m-2">{{burger_name}}<button class="ml-2 btn btn-outline-success" type="submit">Devour
+                                It!</button></li>
 
-<h3>Burgers to eat</h3>
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    <form action="/burger/eat/{{id}}" method="POST">
-        <div>
-            <li>{{burger_name}}</li>
-                <button type="submit">Devour It!</button>
+                    </div>
+                </form>
+                {{/unless}}
+                {{/each}}
+            </ul>
         </div>
-    </form>
-    {{/unless}}
-    {{/each}}
-</ul>
 
-<h3>Devoured Burgers</h3>
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    <li>{{burger_name}}</li>
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form" action="/burger/create" method="POST">
-
-    <div>
-        <label for="burger">Burger Name:</label>
-        <input type="text" id="burger" name="burger_name">
+        <div class="col-4">
+            <h3 class="text-center">Devoured Burgers</h3>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="m-3">{{burger_name}}</li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
 
-    <button type="submit">Add burger</button>
-</form>
+    <div class="row justify-content-center">
+        <h2 class="text-center">Add a burger</h2>
+    </div>
+    <div class="row justify-content-center">
+        <form class="create-form" action="/burger/create" method="POST">
+            <label for="burger">Burger Name:</label>
+            <input type="text" id="burger" name="burger_name"><button class="m-2 btn btn-outline-success"
+                type="submit">Add burger</button>
+        </form>
+    </div>
+</div>

@@ -5,6 +5,7 @@ var orm = {
     var queryString = "SELECT * FROM ??;";
     connection.query(queryString, [tableInput], function (err, result) {
       if (err) throw err;
+      console.log(result);
       next(result);
     });
   },
@@ -15,7 +16,6 @@ var orm = {
 
     connection.query(queryString, [val], function (err, result) {
       if (err) throw err;
-      console.log(result);
       next(result);
     });
   },
@@ -25,7 +25,6 @@ var orm = {
     console.log(queryString);
     connection.query(queryString, [burgerId], function (err, result) {
       if (err) throw err;
-      console.log(result);
       next(result);
     });
   }
